@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <style>
+    /* アニメーション定義（追加） */
+    @keyframes fadeZoomIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+<div class="wrapper">
+<!-- <h1> EVAじゃんけん </h1> -->
+
+<!-- プレイヤー側がカードを選択 -->
+<h2 id="nerv">NERV</h2>
+
+
+
+
+
+
+<div id="player_feild">
+  <div class="player_card">
+     <img src="image/味方_グー.png" alt="グー" class="block_card">
+     <img src="image/味方_チョキ.png" alt="チョキ" class="scissors_card">
+     <img src="image/味方_パー.png" alt="パー" class="paper_card">
+  </div>
+  <div class="player_command">
+      <!-- HPゲージ -->
+       <meter 
+        id="player_meter" 
+        max="150" 
+        low="20" 
+        high="80" 
+        value=""
+        style="width: 200px; height: 30px;">
+      </meter>
+
+      <!-- シンクロ率 -->
+       <div id="gauge_box">
+        シンクロ率 ：
+       <div id="gauge_value">0%</div>
+       </div>
+
+      <!-- 覚醒中の表示 -->
+       <div id="awaken_box">
+        <div id="awaken_text">
+            ーーー
+        </div>
+       </div>
+
+      <!-- ATTACK -->
+      <!-- DEFENCE -->
+      <!-- CHARGE -->
+ </div>
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- 結果表示スペース -->
+<div class="judge_box">
+    <div class="judge"></div>
+</div>
+
+
+
+<!-- コンピューター側がカードを表示 -->
+
+<h2 id="shito">ENEMY</h2>
+
+<div id="computer_feild"></div>
+  <div class="computer_box"></div> <!-- ここに結果をコンピューターのカードを表示 -->
+  <!-- HPゲージ -->
+  <meter id="enemy_meter"
+        max="150" 
+        low="20" 
+        high="80" 
+        value=""
+        style="width: 200px; height: 30px;">
+  </meter>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- jQueryが先 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- style.jsが後 -->
+<script src="js/style.js"></script>
+</div>
+</body>
+</html>

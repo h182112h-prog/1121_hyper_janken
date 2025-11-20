@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("../image/enter_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.enter_title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.image_enter_title{
+    width: 30%;
+    height: auto;
+    margin-top: 20%;
+    opacity: 0.8;
+}
+
+button{
+    width: 300px;
+    height: auto;
+    font-family: 'Orbitron', sans-serif;
+    background-color: #FF0000; /* 背景色 */
+    color: white;  
+    opacity: 0.8;            /* 文字色 */
+    padding: 12px 24px;        /* 内側余白（上下・左右） */
+    font-size: 30px;
+    font-weight:700;
+    border-radius: 8px;
+    margin-top: 20%;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover{
+  transform: scale(1.05);    /* ちょっと大きく */
+  transition: 0.2s;         /* アニメーション */ 
+  
+}
+
+button:active {
+  transform: scale(0.95);    /* 押し込むように */
+}

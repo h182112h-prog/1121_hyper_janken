@@ -1,0 +1,273 @@
+@charset "UTF-8";
+
+/* 画面100%表示にしようとしても適用されない */
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    /* overflow: hidden; */
+}
+
+
+body {
+  background-image: url("../image/bg_image_01.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transform: scale(0.91); /* 追加: 全体を85%に縮小 */
+  transform-origin: top center; /* 追加: 上中央を基準に縮小 */
+}
+
+
+/* h1{
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: brown;
+    margin-top: 30px;
+    margin-bottom: 30px;
+} */
+
+#nerv{
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    /* justify-content: center; */
+    font-size: 30px;
+    font-weight: 700;
+    color: #D20000;
+    margin: 15px;
+    margin-left: 45%;
+}
+
+#shito{
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    /* justify-content: center; */
+    font-size: 30px;
+    font-weight: 700;
+    color: #e8e7e7;
+    margin: 15px;
+    margin-left: 44%;
+}
+
+/* ========プレイヤーフィールド======== */
+#player_feild{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+
+
+/* ========プレイヤーカード======== */
+/* 個別に指定する可能性があるから、一旦それぞれでサイズを指定 */
+/* プレイヤーカード全体の位置を設定 */
+.player_card{
+    display: flex;
+    justify-content: flex-start;
+    gap:10%;
+    padding-left:15%; 
+    
+}
+
+.block_card{
+    width: 270px;
+    /* height: auto; */
+    aspect-ratio: 1 / 1.4; /* カードの一般的な縦横比 */
+    margin-bottom: 30px;
+}
+
+.scissors_card{
+    width: 270px;
+    /* height: auto; */
+    aspect-ratio: 1 / 1.4; /* カードの一般的な縦横比 */
+    margin-bottom: 30px;
+}
+
+.paper_card{
+    width: 270px;
+    /* height: auto; */
+    aspect-ratio: 1 / 1.4; /* カードの一般的な縦横比 */
+    margin-bottom: 30px;
+}
+
+/* ホバーアクション */
+/* 詳細を改めて確認 */
+/* --------------------------------------------- */
+.block_card,
+.scissors_card,
+.paper_card {
+  cursor: pointer;  /*カーソルを手のようにする*/
+  transition: transform 180ms ease, box-shadow 180ms ease; /* transform と box-shadow の変化を0.18秒かけて滑らかにする */
+  will-change: transform; /* GPUに最適化を指示して、アニメーションを滑らかにする */
+}
+
+/* マウスオーバー / キーボードフォーカス時に浮かせる */
+.block_card:hover,
+.scissors_card:hover,
+.paper_card:hover,
+.block_card:focus,
+.scissors_card:focus,
+.paper_card:focus {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  z-index: 10;
+  outline: none;
+}
+
+/* クリック時の押し込み感（任意） */
+.block_card:active,
+.scissors_card:active,
+.paper_card:active {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.30);
+}
+
+/* --------------------------------------------- */
+
+
+.player_command{
+    width: 40%;
+    height: auto;
+    display: flex;
+    margin-right: 30px;
+    flex-direction: column;  /* 縦方向に並べる */
+    align-items: flex-end;     /* 子要素を左寄せ */
+    gap: 30px;               /* 子要素の間隔を20pxに設定 */
+}
+
+
+
+/* シンクロ率・覚醒状態の表示 */
+
+
+
+/* シンクロ率ゲージの作成 */
+
+#gauge_box{
+    width: 250px;
+    height: auto;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 25px;
+    color: #FF7C00;
+    text-shadow: 0 0 8px #FFB366;
+    display: flex;
+    flex-direction: row;     /* 方向に並べる */
+    align-items: flex-end;      /*子要素を右寄せ*/
+    /* border: 4px solid #FFB366; */
+
+}
+
+#gauge_value{
+    font-family: 'Orbitron', sans-serif;
+    font-size:25px;
+    font-weight: 500;
+}
+
+#awaken_box{
+    /* position: absolute; */
+    width: 200px;
+    height: auto;
+    position:relative; 
+    right:5%;
+    /* text-shadow: 0 0 6px #FF0000;
+    border: 4px solid #FF0000; */
+    display: flex; 
+    align-items: flex-end; 
+    justify-content: center;
+}
+
+#awaken_text{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 25px;
+    color: #FF0000;
+}
+
+
+
+
+/* 判定結果 */
+.judge_box{
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 350px;
+    height: 35px;
+    /* margin:0 auto;  */
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 900;
+    background-color: aliceblue;  
+    margin-left: 36%;  
+}
+
+
+
+/* コンピューターフィールドの調整 */
+#computer_feild{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0%;
+}
+
+
+
+/* コンピューターカード */
+
+.computer_box{
+    width: 270px;
+    /* height: auto; */
+    aspect-ratio: 1 / 1.4; /* カードの一般的な縦横比 */
+    display: flex;
+    justify-content:center;
+    /* border: 5px solid #000; */
+    margin-left: 38.5%;
+}
+
+
+
+
+
+/* 余白削除 */
+#enemy_meter{
+    margin-left: 84.5%;
+    transform: translateY(-300px); 
+}
+
+#enemy_meter{
+    margin-left: 84.5%;
+    transform: translateY(-200px); /* -300px → -200px に緩和 */
+}
+
+/* 余白を削減 */
+#nerv, #shito {
+    margin: 8px; /* 15px → 8px に削減 */
+}
+
+#nerv {
+    margin-left: 45%;
+}
+
+#shito {
+    margin-left: 44%;
+}
+
+.block_card, .scissors_card, .paper_card {
+    margin-bottom: 20px; /* 30px → 20px に削減 */
+}
+
+.player_command {
+    gap: 20px; /* 30px → 20px に削減 */
+}
+
+.judge_box {
+    margin-bottom: 8px; /* 10px → 8px に削減 */
+    height: 30px; /* 35px → 30px に削減 */
+    font-size: 28px; /* 30px → 28px に削減 */
+}
