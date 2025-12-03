@@ -2,3 +2,13 @@ node_modules/
 .env
 .DS_Store
 dist/
+
+.vscode/
+package-lock.json
+package.json
+server.js
+"アイデアメモ"
+"スタート手順"
+"画面収録 2025-11-20 23.02.02.mov"
+
+
